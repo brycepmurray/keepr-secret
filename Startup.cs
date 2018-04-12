@@ -51,6 +51,7 @@ namespace keepr_secret
             });
 
             services.AddMvc();
+            services.AddTransient<IDbConnection>(x => CreateDbContext());
             //add Repositories here?
         }
         
