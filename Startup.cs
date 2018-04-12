@@ -52,7 +52,12 @@ namespace keepr_secret
 
             services.AddMvc();
             services.AddTransient<IDbConnection>(x => CreateDbContext());
+            services.AddTransient<KeepRepository>();
+            services.AddTransient<VaultRepository>();
+            services.AddTransient<VaultKeepRepository>();
+            services.AddTransient<UserRepository>();            
             //add Repositories here
+
         }
         
         private IDbConnection CreateDbContext()
