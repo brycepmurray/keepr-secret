@@ -13,9 +13,11 @@ namespace keepr_secret
 {
     public class Startup
     {
+        private readonly string _connectionString;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            _connectionString = configuration.GetSection("DB").GetValue<string>("MySQLConnectionString");
         }
 
         public IConfiguration Configuration { get; }
