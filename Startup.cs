@@ -51,6 +51,7 @@ namespace keepr_secret
             });
 
             services.AddMvc();
+            //add Repositories here?
         }
         
         private IDbConnection CreateDbContext()
