@@ -9,7 +9,7 @@ namespace keepr_secret.Models
         public string Email {get; set;}
         public string Password {get; set;}
 
-        internal UserReturnModel Get ReturnModel()
+        internal UserReturnModel GetReturnModel()
         {
             return new UserReturnModel()
             {
