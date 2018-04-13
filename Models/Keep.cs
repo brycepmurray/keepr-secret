@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace keepr_c.Models
+namespace keepr_secret.Models
 {
     public class Keep
     {

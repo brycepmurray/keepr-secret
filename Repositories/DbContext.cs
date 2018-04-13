@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace API_Users.Repositories
+namespace keepr_secret.Repositories
 {
     public abstract class DbContext
     {

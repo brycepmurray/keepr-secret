@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace API_Users.Models
+namespace keepr_secret.Models
 {
     public class UserReturnModel
     {
