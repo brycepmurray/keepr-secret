@@ -19,7 +19,7 @@ namespace keepr_secret.Repositories
             //sql
             try
             {
-                int id = _db.ExecuteScaler<int>(@"
+                int id = _db.ExecuteScalar<int>(@"
                     INSERT INTO users (Username, Email, Password)
                     VALUES (@Username, @Email, @Password);
                     SELECT LAST_INSERT_ID();
