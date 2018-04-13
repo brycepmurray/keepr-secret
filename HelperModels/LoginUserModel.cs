@@ -1,3 +1,5 @@
+using System;
+
 namespace keepr_secret.Models
 {
     public class LoginUserModel
