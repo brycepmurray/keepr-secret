@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace keepr_secret.Models
 {
-    public class RegisterUserPasswordModel
+    public class RegisterUserModel
     {
         [MaxLength(20)]
         public int Id { get; set; }
