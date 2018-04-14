@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using keepr_secret.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -54,7 +55,7 @@ namespace keepr_secret
             services.AddTransient<IDbConnection>(x => CreateDbContext());
             services.AddTransient<KeepRepository>();
             services.AddTransient<VaultRepository>();
-            services.AddTransient<VaultKeepRepository>();
+            services.AddTransient<MineRepository>();
             services.AddTransient<UserRepository>();            
             //add Repositories here
 

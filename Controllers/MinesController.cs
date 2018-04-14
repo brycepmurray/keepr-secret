@@ -24,5 +24,23 @@ namespace keepr_secret.Controllers
         {
             return db.GetAllKeepsByVault(id);
         }
+
+        //CREATE MINE
+        [HttpPost]
+        public Mine Post([FromBody]Mine mine)
+        {
+            var user = HttpContext.User.Identity.Name;
+            int Id;
+            int.TryParse( user, out Id);
+            mine.UserId = Id;
+            return db.Add(mine);
+        }
+
+        //DELETE
+        [HttpDelete("{id}")]
+        public string Delete(int id)
+        {
+            return db.FindByIdAndRemove(id);
+        }
     }
 }

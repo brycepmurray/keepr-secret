@@ -12804,11 +12804,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\source\\codeworks3\\keepr-secret\\keepr-secret.csproj",
+      "projectUniqueName": "C:\\source\\codeworks3\\keepr-secret\\keepr-secret.csproj",
       "projectName": "keepr-secret",
-      "projectPath": "c:\\source\\codeworks3\\keepr-secret\\keepr-secret.csproj",
+      "projectPath": "C:\\source\\codeworks3\\keepr-secret\\keepr-secret.csproj",
       "packagesPath": "C:\\Users\\murra\\.nuget\\packages\\",
-      "outputPath": "c:\\source\\codeworks3\\keepr-secret\\obj\\",
+      "outputPath": "C:\\source\\codeworks3\\keepr-secret\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

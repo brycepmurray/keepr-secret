@@ -26,7 +26,7 @@ namespace keepr_secret.Repositories
             WHERE (vaultId = {id})", id);
         }
 
-        public Mine Add(Mine mine)
+        public Mine Create(Mine mine)
         {
             int id = _db.ExecuteScalar<int>($@"
             INSERT INTO mines (
