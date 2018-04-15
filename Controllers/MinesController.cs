@@ -33,7 +33,7 @@ namespace keepr_secret.Controllers
             int Id;
             int.TryParse( user, out Id);
             mine.UserId = Id;
-            return db.Add(mine);
+            return db.Create(mine);
         }
 
         //DELETE
