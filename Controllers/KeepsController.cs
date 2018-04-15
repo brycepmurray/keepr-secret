@@ -15,7 +15,7 @@ namespace keepr_secret.Controllers
     public class KeepsController : Controller
     {
         private readonly KeepRepository db;
-        public KeepsController(KeepsController repo)
+        public KeepsController(KeepRepository repo)
         {
             db = repo;
         }
