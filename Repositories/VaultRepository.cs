@@ -27,6 +27,32 @@ namespace keepr_secret.Repositories
             SELECT * FROM vaults WHERE id = @id
             ", id);
         }
-        
+
+        //CREATE VAULT
+        public Vault CreateVault(Vault vault)
+        {
+            int id = _db.ExecuteScalar<int>($@"
+            INSERT INTO vaults (
+              Name,
+              ImageUrl,
+              Description,
+              UserId  
+            )" + $@"
+            VALUES(
+              @Name, 
+              @ImageUrl, 
+              @Description, 
+              @UserId
+              ); 
+              SELECT LAST_INSERT_ID()", new
+              {
+                  vault.Name,
+                  vault.ImageUrl,
+                  vault.Description,
+                  vault.UserId
+              });
+              vault.Id = id;
+              return vault;
+        }
     }
 }
