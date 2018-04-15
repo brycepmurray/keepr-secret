@@ -15,9 +15,10 @@ namespace keepr_secret.Repositories
         }
 
         //Create Keep
-        public KeepRepository CreateKeep(Keep keep)
+        public Keep CreateKeep(Keep keep)
         {
-            int id = _db.ExecuteScalar<int>($@"INSERT INTO keeps (
+            int id = _db.ExecuteScalar<int>($@"
+            INSERT INTO keeps (
                 Name, 
                 ImageUrl,
                 Description, 
