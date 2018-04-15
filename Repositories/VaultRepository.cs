@@ -45,14 +45,14 @@ namespace keepr_secret.Repositories
               @UserId
               ); 
               SELECT LAST_INSERT_ID()", new
-              {
-                  vault.Name,
-                  vault.ImageUrl,
-                  vault.Description,
-                  vault.UserId
-              });
-              vault.Id = id;
-              return vault;
+            {
+                vault.Name,
+                vault.ImageUrl,
+                vault.Description,
+                vault.UserId
+            });
+            vault.Id = id;
+            return vault;
         }
     }
 }
