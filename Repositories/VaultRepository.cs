@@ -54,5 +54,26 @@ namespace keepr_secret.Repositories
             vault.Id = id;
             return vault;
         }
+
+        //UPDATE VAULT
+        public Vault UpdateVault(int id, Vault vault)
+        {
+            return _db.QueryFirstOrDefault<Vault>($@"
+                UPDATE vaults SET  
+                Name = @Name,
+                Description = @Description,
+                UserId = @UserId
+                WHERE Id = {id};
+                SELECT * FROM vaults WHERE id = {id};", vault);
+        }
+
+        //DELETE VAULT
+        public string FindByIdAndRemove(int id)
+        {
+            var success = _db.Execute($@"
+                DELETE FROM vaults WHERE Id = {id}
+            ", id);
+            return success > 0 ? "success" : "umm that didnt work";
+        }
     }
 }
