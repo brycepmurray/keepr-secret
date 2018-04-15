@@ -21,7 +21,7 @@ namespace keepr_secret.Controllers
         }
         //GET ALL KEEPS
         [HttpGet]
-        public IEnumerable<KeepRepository> Get()
+        public IEnumerable<Keep> Get()
         {
             return db.GetAllKeeps();
         }
