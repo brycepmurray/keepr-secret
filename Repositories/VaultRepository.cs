@@ -68,7 +68,7 @@ namespace keepr_secret.Repositories
         }
 
         //DELETE VAULT
-        public string FindByIdAndRemove(int id)
+        public string DeleteVault(int id)
         {
             var success = _db.Execute($@"
                 DELETE FROM vaults WHERE Id = {id}
