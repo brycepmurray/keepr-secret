@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Vault from '@/components/Vault'
 import Keep from '@/components/Keep'
+import Main from '@/components/Main'
 
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
             path: '/keeps',
             name: 'Keeps',
             component: Keep
+        },
+        {
+            path: '/main',
+            name: 'Main',
+            component: Main
         }
     ]
 })
