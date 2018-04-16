@@ -17,7 +17,15 @@
         components: {
             Navbar
         },
-        mounted() {}
+        mounted() {
+            this.$store.dispatch('authenticate')
+        },
+        methods: {},
+        computed: {
+            user() {
+                return this.$store.state.user
+            }
+        }
     }
 </script>
 
