@@ -1,77 +1,96 @@
 <template>
-<div class="Login">
-    <header>
-        <h2 class="keepr">Keepr-Secret</h2>
-    </header>
-    <div class="panel" v-if="loginFormActive">
-            <div class="panel-body">
-                <form type="submit" @submit.prevent="submitLogin">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" placeholder="bob@bob.com" v-model="login.email" required>
+    <div class="login">
+        <div class="row">
+            <!-- Modal -->
+            <div id="loginModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="col-sm-12">
+                                <h4>Account</h4>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div v-if="loginForm">
+                                <form @submit.prevent="Login">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="bob@bob.com" v-model="login.email">                                
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" placeholder="password" v-model="login.password">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div v-else>
+                                <form @submit.prevent="Register">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="bob@bob.com" v-model="register.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="username" v-model="register.username">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" placeholder="password" v-model="register.password">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Register</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="col-sm-5" v-if="loginForm" @click="toggleLoginForm">Don't have an account? Click to Register.</a>
+                            <a class="col-sm-5" v-else @click="toggleLoginForm">Already have an account? Click to Login.</a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" placeholder="123badpassword" v-model="login.password" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn">Login</button>
-                    </div>
-                    <a class="toggle-link cursor" @click="toggleFormState">Sign Up Here</a>
-                </form>
+                </div>
             </div>
         </div>
-        <div class="panel" v-else>
-                <div class="panel-body">
-                    <form type="submit" @submit.prevent="submitRegister">
-                        <div class="form-group">
-                            <label for="name">Username:</label>
-                            <input type="text" class="form-control" placeholder="username" v-model="register.username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" placeholder="bob@bob.com" v-model="register.email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" placeholder="password" v-model="register.password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Profile Image:</label>
-                            <input type="text" class="form-control" placeholder="placehold.it/70x70" v-model="register.imageUrl">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn">Register</button>
-                        </div>
-                        <a class="toggle-link cursor" @click="toggleFormState">Already Have an Account? Login now!</a>
-                    </form>
-                </div>
-        </div>
-</div>
-</template>
+    </div>
+    </template>
 
 <script>
-    import Vue from 'vue'
-
     export default {
+        name: "Login",
         data() {
             return {
+                loginForm: true,
                 login: {
-                    email: '',
-                    password: ''
+                    email: "",
+                    password: ""
                 },
                 register: {
-                    username: '',
-                    email: '',
-                    password: '',
-                    imageUrl: ''
-                },
-                loginFormActive: true
-            }
+                    email: "",
+                    username: "",
+                    password: "",
+                    imageUrl: ""
+                }
+            };
         },
-        computed: {
-            error() {
-                return this.$store.state.error.message
+        methods: {
+            toggleLoginForm() {
+                this.loginForm = !this.loginForm;
+            },
+            Login() {
+                this.$store.dispatch("login", this.login);
+                this.login = {
+                    email: "",
+                    password: ""
+                };
+            },
+            Register() {
+                this.$store.dispatch("register", this.register);
+                this.register = {
+                    email: "",
+                    username: "",
+                    password: "",
+                    imageUrl: "",
+                }
             }
         }
     }
